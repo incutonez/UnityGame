@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 1998332193
+    locked: 0
+  - name: Pickups
+    uniqueID: 2491354167
     locked: 0

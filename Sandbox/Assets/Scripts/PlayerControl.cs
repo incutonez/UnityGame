@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using Assets.Weapons;
+using Assets.Weapons.Sword;
 using UnityEngine;
-using Diagnostics = System.Diagnostics;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -10,17 +10,20 @@ public class PlayerControl : MonoBehaviour
     public bool isGrounded = true;
     public bool isFacedRight = false;
     public float distanceToGround = 0f;
+    public Text countText;
+    public Text winText;
+    public Weapon sword;
 
     private Rigidbody2D rb2d;
     private Animator anim;
-    private BoxCollider2D collider;
+    private int count = 0;
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //collider = GetComponent<BoxCollider2D>();
-        //distanceToGround = collider.bounds.extents.y;
+        winText.enabled = false;
+        SetCountText();
     }
 
     private bool IsGrounded()
@@ -71,6 +74,42 @@ public class PlayerControl : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            var weapon = (WeaponDisplay) collision.gameObject.GetComponent("WeaponDisplay");
+            if (weapon.sword == Swords.Wooden)
+            {
+                sword = ScriptableObject.CreateInstance<Wooden>();
+            }
+            else if (weapon.sword == Swords.Steel)
+            {
+                sword = ScriptableObject.CreateInstance<Steel>();
+            }
+            else if (weapon.sword == Swords.MetallicGlass)
+            {
+                sword = ScriptableObject.CreateInstance<MetallicGlass>();
+            }
+            else if (weapon.sword == Swords.Diamond)
+            {
+                sword = ScriptableObject.CreateInstance<Diamond>();
+            }
+            Destroy(collision.gameObject);
+            count++;
+            SetCountText();
+        }
+    }
+
+    private void SetCountText()
+    {
+        countText.text = $"Count: {count.ToString()}";
+        if (count >= 2)
+        {
+            winText.enabled = true;
+        }
     }
 
     private void ChangeDirection()
