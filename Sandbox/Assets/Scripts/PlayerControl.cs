@@ -1,6 +1,7 @@
 ﻿using Assets.Weapons;
 using Assets.Weapons.Sword;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     public Text countText;
     public Text winText;
     public Weapon sword;
+    public GameObject weaponDisplay;
 
     private Rigidbody2D rb2d;
     private Animator anim;
@@ -23,6 +25,7 @@ public class PlayerControl : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         winText.enabled = false;
+        weaponDisplay.SetActive(false);
         SetCountText();
     }
 
@@ -78,26 +81,34 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pickup"))
+        if (collision.gameObject.CompareTag("Weapon"))
         {
-            var weapon = (WeaponDisplay) collision.gameObject.GetComponent("WeaponDisplay");
-            if (weapon.sword == Swords.Wooden)
+            var item = (Item) collision.gameObject.GetComponent("Item");
+            //sword = (Weapon)collision.gameObject.GetComponent("Item");
+            if (item.itemType == ItemTypes.Weapon)
             {
-                sword = ScriptableObject.CreateInstance<Wooden>();
+                if (item.subType == WeaponTypes.Sword)
+                {
+                    switch (item.subSubType)
+                    {
+                        case Swords.Wooden:
+                            sword = new Wooden();
+                            break;
+                        case Swords.Steel:
+                            sword = new Steel();
+                            break;
+                        case Swords.Diamond:
+                            sword = new Diamond();
+                            break;
+                    }
+                }
+                weaponDisplay.SetActive(true);
+                weaponDisplay.GetComponent<SpriteRenderer>().color = sword.color;
             }
-            else if (weapon.sword == Swords.Steel)
-            {
-                sword = ScriptableObject.CreateInstance<Steel>();
-            }
-            else if (weapon.sword == Swords.MetallicGlass)
-            {
-                sword = ScriptableObject.CreateInstance<MetallicGlass>();
-            }
-            else if (weapon.sword == Swords.Diamond)
-            {
-                sword = ScriptableObject.CreateInstance<Diamond>();
-            }
-            Destroy(collision.gameObject);
+            print($"SETTING SWORD {sword.subSubType} {sword.color}");
+            item.OnDestroy();
+            //Destroy(collision.gameObject);
+            //collision.gameObject.SetActive(false);
             count++;
             SetCountText();
         }
@@ -105,8 +116,8 @@ public class PlayerControl : MonoBehaviour
 
     private void SetCountText()
     {
-        countText.text = $"Count: {count.ToString()}";
-        if (count >= 2)
+        countText.text = $"Count: {count.ToString()} {sword.subSubType}";
+        if (sword != null && sword.subSubType == Swords.Diamond)
         {
             winText.enabled = true;
         }

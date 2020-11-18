@@ -5,9 +5,11 @@
         public MetallicGlass()
         {
             _power = 20f;
+            subType = WeaponTypes.Sword;
+            subSubType = Swords.MetallicGlass;
         }
 
-        public override void Attack()
+        public override void Use()
         {
             // TODOJEF: Do something
         }

@@ -1,4 +1,4 @@
-﻿public enum Swords
+﻿public enum Swords : byte
 {
     None = 0,
     Wooden = 1,

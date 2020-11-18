@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5580421697301851556}
   - component: {fileID: 5580421697301851557}
   - component: {fileID: 2277862383250726015}
-  - component: {fileID: 3772411828448038448}
+  - component: {fileID: -2382071832144520445}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Pickup
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3772411828448038448
+--- !u!114 &-2382071832144520445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,6 +155,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5580421697301851558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e876dec04fa0841886dc209f9c3aba, type: 3}
+  m_Script: {fileID: 11500000, guid: 7084bc4432336e44aa4263cf482c5a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
+  subType: 0
+  subSubType: 0
