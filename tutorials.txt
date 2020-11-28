@@ -1,0 +1,7 @@
+Tutorials that I've used throughout this process:
+- Inkscape sprite sheet https://design.tutsplus.com/articles/create-a-2d-sprite-sheet-for-unity-43-in-inkscape--vector-20104
+- Skeletal/bones https://www.youtube.com/watch?v=P_JCd7UD-rQ&list=PL47Rw0j-6uwrsGW1h7Vse7qGi2b-W5S4N
+- Walking/more bones https://www.youtube.com/watch?v=MhOJ742NSoM&list=PLwx1hYGfxqUz4lTQ7Enli2NyuUhyLTLc5
+- Player move/item pickup https://www.youtube.com/watch?v=jTtCsOjNwJQ&list=PLoaXIByPk6_0U3xmgj1IRV-yYSSAFE6tv
+- Inventory system/item pickup https://www.youtube.com/watch?v=2WnAOV7nHW0&list=PLzWXZYCZHnbFW0bTlZ93KMMGJCMtXpEEE&index=9
+- Drag/drop https://www.youtube.com/watch?v=BGr-7GZJNXg

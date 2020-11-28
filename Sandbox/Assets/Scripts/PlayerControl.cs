@@ -1,7 +1,6 @@
 ﻿using Assets.Weapons;
 using Assets.Weapons.Sword;
 using UnityEngine;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
@@ -14,25 +13,29 @@ public class PlayerControl : MonoBehaviour
     public Text countText;
     public Text winText;
     public Weapon sword;
-    public GameObject weaponDisplay;
+    public Inventory inventory;
 
+    [SerializeField]
+    private UIInventory uiInventory;
     private Rigidbody2D rb2d;
     private Animator anim;
     private int count = 0;
+
+    private void Awake()
+    {
+        inventory = new Inventory(UseItem);
+        uiInventory.SetInventory(inventory);
+        uiInventory.SetPlayer(this);
+    }
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         winText.enabled = false;
-        weaponDisplay.SetActive(false);
         SetCountText();
     }
 
-    private bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
-    }
     void FixedUpdate()
     {
         // Grabs input from player on keyboard
@@ -81,34 +84,13 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Weapon"))
+        ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
+        Debug.unityLogger.Log("YO");
+        if (itemWorld != null)
         {
-            var item = (Item) collision.gameObject.GetComponent("Item");
-            //sword = (Weapon)collision.gameObject.GetComponent("Item");
-            if (item.itemType == ItemTypes.Weapon)
-            {
-                if (item.subType == WeaponTypes.Sword)
-                {
-                    switch (item.subSubType)
-                    {
-                        case Swords.Wooden:
-                            sword = new Wooden();
-                            break;
-                        case Swords.Steel:
-                            sword = new Steel();
-                            break;
-                        case Swords.Diamond:
-                            sword = new Diamond();
-                            break;
-                    }
-                }
-                weaponDisplay.SetActive(true);
-                weaponDisplay.GetComponent<SpriteRenderer>().color = sword.color;
-            }
-            print($"SETTING SWORD {sword.subSubType} {sword.color}");
-            item.OnDestroy();
-            //Destroy(collision.gameObject);
-            //collision.gameObject.SetActive(false);
+            Debug.unityLogger.Log("IN");
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
             count++;
             SetCountText();
         }
@@ -116,11 +98,27 @@ public class PlayerControl : MonoBehaviour
 
     private void SetCountText()
     {
-        countText.text = $"Count: {count.ToString()} {sword.subSubType}";
+        countText.text = $"Count: {count.ToString()}";
         if (sword != null && sword.subSubType == Swords.Diamond)
         {
             winText.enabled = true;
         }
+    }
+
+    private void UseItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            case ItemTypes.Weapon:
+                // TODOJEF: Flash character red
+                inventory.RemoveItem(new Item { itemType = item.itemType, subType = item.subType, subSubType = item.subSubType, amount = 1 });
+                break;
+        }
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 
     private void ChangeDirection()

@@ -1,0 +1,22 @@
+- Figure out drag/drop
+- Pressing certain keys to access inventory
+- Using items
+-- Potions
+-- Swords
+-- Sword shooting
+-- Fire burning
+-- Projectiles
+-- Raft
+-- Ladder
+-- Blue/Red ring
+-- Pushing special blocks
+- Health system
+-- Including what happens when player dies
+- Saving
+- Loading next area tile
+- Going into sub-areas, like going downstairs or entering a castle
+- Window > 2D > Tile Palette... how to set up?
+-- Rule Tile Asset
+-- Will be useful for creating levels and such
+-- Being able to create random worlds?
+- Enemies

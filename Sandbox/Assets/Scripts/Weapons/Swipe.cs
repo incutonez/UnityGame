@@ -15,7 +15,7 @@ namespace Assets.Scripts.Weapons
             RaycastHit hit;
             if (Physics.Raycast(position.position, position.forward, out hit, range))
             {
-                print($"I HIT YOU {hit.transform}");
+                //print($"I HIT YOU {hit.transform}");
             }
         }
     }
