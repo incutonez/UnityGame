@@ -1,8 +1,5 @@
-﻿using Assets.Weapons;
-using Assets.Weapons.Sword;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Inventory
 {
@@ -19,28 +16,31 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-        if (item.IsStackable())
+        if (item != null)
         {
-            bool isInInventory = false;
-            foreach (Item it in items)
+            if (item.IsStackable())
             {
-                if (it.itemType == item.itemType)
+                bool isInInventory = false;
+                foreach (Item it in items)
                 {
-                    isInInventory = true;
-                    it.amount += item.amount;
-                    break;
+                    if (it.itemType == item.itemType)
+                    {
+                        isInInventory = true;
+                        it.amount += item.amount;
+                        break;
+                    }
+                }
+                if (!isInInventory)
+                {
+                    items.Add(item);
                 }
             }
-            if (!isInInventory)
+            else
             {
                 items.Add(item);
             }
+            OnItemListChanged?.Invoke(this, EventArgs.Empty);
         }
-        else
-        {
-            items.Add(item);
-        }
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void RemoveItem(Item item)

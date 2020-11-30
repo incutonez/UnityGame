@@ -4,4 +4,6 @@ Tutorials that I've used throughout this process:
 - Walking/more bones https://www.youtube.com/watch?v=MhOJ742NSoM&list=PLwx1hYGfxqUz4lTQ7Enli2NyuUhyLTLc5
 - Player move/item pickup https://www.youtube.com/watch?v=jTtCsOjNwJQ&list=PLoaXIByPk6_0U3xmgj1IRV-yYSSAFE6tv
 - Inventory system/item pickup https://www.youtube.com/watch?v=2WnAOV7nHW0&list=PLzWXZYCZHnbFW0bTlZ93KMMGJCMtXpEEE&index=9
-- Drag/drop https://www.youtube.com/watch?v=BGr-7GZJNXg
+- Drag/drop
+-- https://www.youtube.com/watch?v=BGr-7GZJNXg
+-- https://www.youtube.com/watch?v=55TBhlOt_U8

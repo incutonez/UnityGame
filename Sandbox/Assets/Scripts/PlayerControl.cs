@@ -1,6 +1,7 @@
 ﻿using Assets.Weapons;
 using Assets.Weapons.Sword;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
@@ -65,11 +66,6 @@ public class PlayerControl : MonoBehaviour
         rb2d.AddForce(new Vector2(moveX, moveY));
         anim.SetFloat("Speed", Mathf.Abs(moveX));
         anim.SetFloat("vSpeed", Mathf.Abs(moveY));
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        //Diagnostics.Debug.WriteLine("OnCollisionStay2D");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

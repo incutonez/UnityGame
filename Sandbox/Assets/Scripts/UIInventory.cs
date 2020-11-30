@@ -36,14 +36,14 @@ public class UIInventory : MonoBehaviour
 
     private void RefreshUI()
     {
-        foreach (Transform child in _itemSlot)
-        {
-            if (child == _itemSlotTemplate)
-            {
-                continue;
-            }
-            Destroy(child.gameObject);
-        }
+        //foreach (Transform child in _itemSlot)
+        //{
+        //    if (child == _itemSlotTemplate)
+        //    {
+        //        continue;
+        //    }
+        //    Destroy(child.gameObject);
+        //}
 
         int x = 0;
         int y = 0;

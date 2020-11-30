@@ -1,6 +1,5 @@
 ﻿using Assets.Weapons;
 using System;
-using UnityEditor;
 using UnityEngine;
 
 public enum ItemTypes
@@ -69,48 +68,3 @@ public class Item
         return true;
     }
 }
-
-//[CustomEditor(typeof(Item))]
-//public class ItemEditor : Editor
-//{
-//    SerializedProperty display;
-//    SerializedProperty itemType;
-//    SerializedProperty subType;
-//    SerializedProperty subSubType;
-
-//    void OnEnable()
-//    {
-//        display = serializedObject.FindProperty("display");
-//        itemType = serializedObject.FindProperty("itemType");
-//        subType = serializedObject.FindProperty("subType");
-//        subSubType = serializedObject.FindProperty("subSubType");
-//    }
-
-//    public override void OnInspectorGUI()
-//    {
-//        serializedObject.Update();
-//        EditorGUILayout.PropertyField(display);
-//        EditorGUILayout.PropertyField(itemType);
-//        switch ((ItemTypes)itemType.intValue)
-//        {
-//            case ItemTypes.Weapon:
-//                EditorGUILayout.PropertyField(subType);
-//                switch ((WeaponTypes)subType.intValue)
-//                {
-//                    case WeaponTypes.Sword:
-//                        EditorGUILayout.PropertyField(subSubType);
-//                        break;
-//                }
-//                break;
-//        }
-//        serializedObject.ApplyModifiedProperties();
-//    }
-//}
-
-//public class WeaponDisplay: Item
-//{
-//    public WeaponDisplay()
-//    {
-//        itemType = ItemTypes.Weapon;
-//    }
-//}

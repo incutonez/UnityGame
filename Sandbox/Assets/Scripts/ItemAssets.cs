@@ -10,7 +10,7 @@ public class ItemAssets : MonoBehaviour
         Instance = this;
     }
 
-    public Transform prefab;
+    public RectTransform prefab;
 
     public Sprite defaultSprite;
     public Sprite swordWooden;
