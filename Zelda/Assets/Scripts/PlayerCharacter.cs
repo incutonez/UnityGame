@@ -1,19 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Enums;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    public CharacterBase charBase;
-    public Animator animator;
+    public CharacterAnimation characterAnimation;
     public Rigidbody2D rb2d;
+    public const float SPEED = 1f;
 
-    private Vector3 lastMove;
+    private Inventory inventory;
+    private Vector3 movement;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        inventory = new Inventory(UseItem);
     }
 
     // Update is called once per frame
@@ -22,9 +21,30 @@ public class PlayerCharacter : MonoBehaviour
         Move();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
+        if (itemWorld != null)
+        {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+    }
+
+    private void UseItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            case Items.PotionBlue:
+                // TODOJEF: Flash character red
+                inventory.RemoveItem(new Item { itemType = item.itemType, amount = 1 });
+                break;
+        }
+    }
+
+    // Taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
     public void Move()
     {
-        float speed = 1f;
         float moveX = 0f;
         float moveY = 0f;
 
@@ -45,22 +65,13 @@ public class PlayerCharacter : MonoBehaviour
             moveX = 1f;
         }
 
-        if (moveX == 0 && moveY == 0)
-        {
-            charBase.IdleAnimation(Vector3.zero);
-            animator.SetBool("isMoving", false);
-            rb2d.velocity = Vector2.zero;
-        }
-        else
-        {
-            Vector3 moveVect = new Vector3(moveX, moveY).normalized;
-            charBase.WalkAnimation(moveVect);
-            //transform.position += moveVect * speed * Time.deltaTime;
-            animator.SetFloat("xMove", moveVect.x);
-            animator.SetFloat("yMove", moveVect.y);
-            animator.SetBool("isMoving", true);
-            lastMove = moveVect;
-            rb2d.velocity = moveVect * speed;
-        }
+        movement = new Vector3(moveX, moveY).normalized;
+        characterAnimation.Animate(movement);
+    }
+
+    private void FixedUpdate()
+    {
+        // Taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
+        rb2d.velocity = movement * SPEED;
     }
 }

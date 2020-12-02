@@ -1,7 +1,5 @@
 ﻿using Assets.Weapons;
-using Assets.Weapons.Sword;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
