@@ -355,7 +355,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6317526053111568887, guid: c728e0b9e0b1e89429bdc190336fcb4d,
+  m_Sprite: {fileID: 7152930139536384079, guid: be7a69334aad2654fb09aa918c8b174c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc0b1ee5a01cd54b8443e531d1b3181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: d0af441b13158c540b080cc2c04dc14f, type: 3}
+  texture: {fileID: 2800000, guid: be7a69334aad2654fb09aa918c8b174c, type: 3}
 --- !u!4 &1546206353
 Transform:
   m_ObjectHideFlags: 0
