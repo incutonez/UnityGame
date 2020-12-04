@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
+    public UIInventory uiInventory;
     public CharacterAnimation characterAnimation;
     public Rigidbody2D rb2d;
     public const float SPEED = 1f;
@@ -13,6 +14,8 @@ public class PlayerCharacter : MonoBehaviour
     private void Awake()
     {
         inventory = new Inventory(UseItem);
+        uiInventory.SetInventory(inventory);
+        uiInventory.SetPlayer(this);
     }
 
     // Update is called once per frame

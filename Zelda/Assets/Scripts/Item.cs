@@ -13,8 +13,19 @@ public class Item
         return ItemManager.Instance.LoadSprite(itemType);
     }
 
+    // TODOJEF: Add GetPickupSound and play it when item is picked up
+
     public bool IsStackable()
     {
-        return false;
+        switch(itemType)
+        {
+            case Items.Bomb:
+            case Items.Key:
+            case Items.RupeeOne:
+            case Items.RupeeFive:
+                return true;
+            default:
+                return false;
+        }
     }
 }

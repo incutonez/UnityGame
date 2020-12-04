@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enums;
+using UnityEngine;
 
 public class ItemWorld : MonoBehaviour
 {
@@ -31,10 +32,15 @@ public class ItemWorld : MonoBehaviour
             renderer.sprite = sprite;
             // Let's use the sprite's name to name the cloned object
             transform.name = sprite.name;
-            transform.sizeDelta = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
-            //Vector2 S = sprite.bounds.size;
-            //collider.size = S;
-            //collider.offset = new Vector2((S.x / 2), 0); ;
+            // Need to make sure our character is sized properly with both the transform and collider
+            transform.sizeDelta = sprite.bounds.size;
+            collider.size = sprite.bounds.size;
+            // If we have a Heart, we need to make it blink, so let's add that animation
+            if (item.itemType == Items.Heart)
+            {
+                Animator anim = gameObject.AddComponent<Animator>();
+                anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("HeartBlinkController");
+            }
         }
     }
 

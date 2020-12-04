@@ -1,10 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
+
+public class InventoryChangeArgs : EventArgs
+{
+    public readonly Item item;
+    public readonly bool removed;
+
+    public InventoryChangeArgs(Item item, bool removed = false)
+    {
+        this.item = item;
+        this.removed = removed;
+    }
+}
 
 public class Inventory
 {
-    public event EventHandler OnItemListChanged;
+    public event Action<Inventory, InventoryChangeArgs> OnItemListChanged;
 
     private Action<Item> _useItemAction;
     private List<Item> items;
@@ -40,7 +51,7 @@ public class Inventory
             {
                 items.Add(item);
             }
-            OnItemListChanged?.Invoke(this, EventArgs.Empty);
+            OnItemListChanged(this, new InventoryChangeArgs(item));
         }
     }
 
@@ -67,7 +78,7 @@ public class Inventory
         {
             items.Remove(item);
         }
-        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        OnItemListChanged(this, new InventoryChangeArgs(item, true));
     }
 
     public void UseItem(Item item)

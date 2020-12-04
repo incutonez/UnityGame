@@ -29,6 +29,7 @@
         // Raft changes colors based on suit
         Raft,
         RingBlue,
+        RingGreen,
         RingRed,
         RupeeFive,
         RupeeOne,
