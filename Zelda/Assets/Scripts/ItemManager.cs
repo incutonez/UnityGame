@@ -16,11 +16,15 @@ public class ItemManager : MonoBehaviour
         LoadAllItems();
     }
 
+    public Sprite LoadSpriteByItemType(Items itemType)
+    {
+        return LoadSprite(itemType.GetCustomAttr("Resource"));
+    }
+
     // Idea taken from https://answers.unity.com/questions/1417421/how-to-load-all-my-sprites-in-my-folder-and-put-th.html
-    public Sprite LoadSprite(Items itemType, float PixelsPerUnit = 100.0f)
+    public Sprite LoadSprite(string spriteName)
     {
         Sprite sprite = null;
-        string spriteName = itemType.GetCustomAttr("Resource");
         foreach (Sprite item in sprites)
         {
             if (item.name == spriteName)
@@ -30,6 +34,7 @@ public class ItemManager : MonoBehaviour
             }
         }
         return sprite;
+
     }
 
     #region Debug

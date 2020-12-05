@@ -10,7 +10,7 @@ public class Item
 
     public Sprite GetSprite()
     {
-        return ItemManager.Instance.LoadSprite(itemType);
+        return ItemManager.Instance.LoadSpriteByItemType(itemType);
     }
 
     // TODOJEF: Add GetPickupSound and play it when item is picked up
