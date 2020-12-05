@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour
 {
     public UIInventory uiInventory;
-    public CharacterAnimation characterAnimation;
     public Rigidbody2D rb2d;
     public const float SPEED = 1f;
+    public CharacterAnimation animator;
 
     private Inventory inventory;
     private Vector3 movement;
@@ -16,6 +16,12 @@ public class PlayerCharacter : MonoBehaviour
         inventory = new Inventory(UseItem);
         uiInventory.SetInventory(inventory);
         uiInventory.SetPlayer(this);
+    }
+
+    private void Start()
+    {
+        SpriteRenderer shield = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+        shield.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -69,7 +75,7 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         movement = new Vector3(moveX, moveY).normalized;
-        characterAnimation.Animate(movement);
+        animator.Animate(movement);
     }
 
     private void FixedUpdate()

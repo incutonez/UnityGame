@@ -7,6 +7,20 @@ public class CharacterAnimation : MonoBehaviour
     public new SpriteRenderer renderer;
     public new BoxCollider2D collider;
 
+    private Vector3 lastMovement;
+    private GameObject shield;
+    private GameObject body;
+
+    private void Awake()
+    {
+        body = transform.GetChild(0).gameObject;
+        shield = transform.GetChild(1).gameObject;
+        Vector3 spriteSize = body.GetComponent<SpriteRenderer>().sprite.bounds.size;
+        // Need to make sure our character is sized properly with both the transform and collider
+        transform.sizeDelta = spriteSize;
+        collider.size = spriteSize;
+    }
+
     // Idea taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
     public void Animate(Vector3 movement)
     {
@@ -16,11 +30,13 @@ public class CharacterAnimation : MonoBehaviour
         }
         else
         {
+            lastMovement = movement;
             Walk(movement);
         }
-        // Need to make sure our character is sized properly with both the transform and collider
-        transform.sizeDelta = renderer.sprite.bounds.size;
-        collider.size = renderer.sprite.bounds.size;
+
+        // Idea from https://gamedev.stackexchange.com/questions/125464/multiple-sprite-animation-layers-overlayed-in-unity-animator
+        // If we were last moving down or we haven't moved at all
+        shield.SetActive(lastMovement.y == -1f || lastMovement == Vector3.zero);
     }
 
     public void Idle(Vector3 movement)
