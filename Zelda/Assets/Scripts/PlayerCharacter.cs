@@ -6,10 +6,16 @@ public class PlayerCharacter : MonoBehaviour
     public UIInventory uiInventory;
     public Rigidbody2D rb2d;
     public const float SPEED = 1f;
-    public CharacterAnimation animator;
+    public CharacterAnimation characterAnimation;
+    public Animator animator;
 
     private Inventory inventory;
     private Vector3 movement;
+    private float? attackTimer;
+    // This is the minimum value used to determine when to stop the attack animation
+    private const float ATTACK_MIN = 0.5f;
+    // This is the maximum value used to determine when the player can attack again
+    private const float ATTACK_MAX = 0.8f;
 
     private void Awake()
     {
@@ -56,26 +62,48 @@ public class PlayerCharacter : MonoBehaviour
     {
         float moveX = 0f;
         float moveY = 0f;
+        bool isAttacking = attackTimer.HasValue;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (!attackTimer.HasValue && Input.GetKey(KeyCode.RightControl))
         {
-            moveY = 1f;
+            // Start the timer
+            attackTimer = 0f;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        else if (attackTimer.HasValue && attackTimer.Value < ATTACK_MIN)
         {
-            moveY = -1f;
+            attackTimer += Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else
         {
-            moveX = -1f;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            moveX = 1f;
+            isAttacking = false;
+            if (attackTimer.HasValue && attackTimer.Value < ATTACK_MAX)
+            {
+                attackTimer += Time.deltaTime;
+            }
+            else
+            {
+                attackTimer = null;
+            }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                moveY = 1f;
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                moveY = -1f;
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                moveX = -1f;
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                moveX = 1f;
+            }
         }
 
         movement = new Vector3(moveX, moveY).normalized;
-        animator.Animate(movement);
+        characterAnimation.Animate(movement, isAttacking);
     }
 
     private void FixedUpdate()
