@@ -1,4 +1,5 @@
 ﻿using Enums;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
@@ -11,11 +12,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private Inventory inventory;
     private Vector3 movement;
-    private float? attackTimer;
-    // This is the minimum value used to determine when to stop the attack animation
-    private const float ATTACK_MIN = 0.5f;
-    // This is the maximum value used to determine when the player can attack again
-    private const float ATTACK_MAX = 0.8f;
+    private bool isAttacking = false;
+    private float? lastAttack = 0f;
 
     private void Awake()
     {
@@ -57,58 +55,68 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+    public IEnumerator Attack()
+    {
+        isAttacking = true;
+        yield return StartCoroutine(characterAnimation.Attack());
+        lastAttack = Constants.ATTACK_DELAY;
+        isAttacking = false;
+    }
+
     // Taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
     public void Move()
     {
-        float moveX = 0f;
-        float moveY = 0f;
-        bool isAttacking = attackTimer.HasValue;
-
-        if (!attackTimer.HasValue && Input.GetKey(KeyCode.RightControl))
+        if (!isAttacking)
         {
-            // Start the timer
-            attackTimer = 0f;
-        }
-        else if (attackTimer.HasValue && attackTimer.Value < ATTACK_MIN)
-        {
-            attackTimer += Time.deltaTime;
-        }
-        else
-        {
-            isAttacking = false;
-            if (attackTimer.HasValue && attackTimer.Value < ATTACK_MAX)
+            if (!lastAttack.HasValue && Input.GetKey(KeyCode.RightControl))
             {
-                attackTimer += Time.deltaTime;
+                StartCoroutine(Attack());
             }
             else
             {
-                attackTimer = null;
-            }
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                moveY = 1f;
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                moveY = -1f;
-            }
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                moveX = -1f;
-            }
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                moveX = 1f;
+                float moveX = 0f;
+                float moveY = 0f;
+                if (lastAttack.HasValue)
+                {
+                    lastAttack -= Time.deltaTime;
+                    // Keep decrementing until we've hit the threshold
+                    if (lastAttack <= Constants.ATTACK_DELAY_THRESHOLD)
+                    {
+                        lastAttack = null;
+                    }
+                }
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    moveY = 1f;
+                }
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    moveY = -1f;
+                }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    moveX = -1f;
+                }
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    moveX = 1f;
+                }
+                movement = new Vector3(moveX, moveY).normalized;
+                characterAnimation.Animate(movement);
             }
         }
-
-        movement = new Vector3(moveX, moveY).normalized;
-        characterAnimation.Animate(movement, isAttacking);
     }
 
     private void FixedUpdate()
     {
-        // Taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
-        rb2d.velocity = movement * SPEED;
+        if (isAttacking)
+        {
+            rb2d.velocity = Vector2.zero;
+        }
+        else
+        {
+            // Taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
+            rb2d.velocity = movement * SPEED;
+        }
     }
 }
