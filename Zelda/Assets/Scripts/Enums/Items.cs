@@ -1,4 +1,5 @@
-﻿namespace Enums
+﻿// TODOJEF: Add Enemies and Characters enum
+namespace Enums
 {
     public enum Items
     {

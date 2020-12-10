@@ -8,6 +8,8 @@ public class ItemWorld : MonoBehaviour
     public new RectTransform transform;
     public new BoxCollider2D collider;
 
+    private WorldObjectSize worldObjectSize;
+
     public static ItemWorld SpawnItem(Vector3 position, Item item)
     {
         RectTransform transform = Instantiate(ItemManager.Instance.prefab, position, Quaternion.identity);
@@ -16,6 +18,11 @@ public class ItemWorld : MonoBehaviour
         itemWorld.SetItem(item);
 
         return itemWorld;
+    }
+
+    private void Awake()
+    {
+        worldObjectSize = GetComponent<WorldObjectSize>();
     }
 
     public static ItemWorld DropItem(Vector3 dropPosition, Item item)
@@ -32,9 +39,7 @@ public class ItemWorld : MonoBehaviour
             renderer.sprite = sprite;
             // Let's use the sprite's name to name the cloned object
             transform.name = sprite.name;
-            // Need to make sure our character is sized properly with both the transform and collider
-            transform.sizeDelta = sprite.bounds.size;
-            collider.size = sprite.bounds.size;
+            worldObjectSize.SetObjectSize(sprite.bounds.size);
             // If we have a Heart, we need to make it blink, so let's add that animation
             if (item.itemType == Items.Heart)
             {

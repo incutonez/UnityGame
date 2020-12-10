@@ -11,21 +11,25 @@ public class CharacterAnimation : MonoBehaviour
     private SpriteRenderer shield;
     private SpriteRenderer shieldLeft;
     private SpriteRenderer shieldRight;
-    private GameObject sword;
+    private WorldObjectSize worldObjectSize;
+    private RectTransform swordTransform;
+    private SpriteRenderer swordRenderer;
     private GameObject body;
     private const float ATTACK_LENGTH = 0.3f;
 
     private void Awake()
     {
+        worldObjectSize = GetComponent<WorldObjectSize>();
         body = transform.GetChild(0).gameObject;
         shield = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         shieldRight = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
         shieldLeft = transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
-        sword = transform.GetChild(4).gameObject;
+        GameObject sword = transform.GetChild(4).gameObject;
+        swordTransform = sword.GetComponent<RectTransform>();
+        swordRenderer = sword.GetComponent<SpriteRenderer>();
         Vector3 spriteSize = body.GetComponent<SpriteRenderer>().sprite.bounds.size;
         // Need to make sure our character is sized properly with both the transform and collider
-        transform.sizeDelta = spriteSize;
-        collider.size = spriteSize;
+        worldObjectSize.SetObjectSize(spriteSize);
     }
 
     // Idea taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
@@ -66,8 +70,6 @@ public class CharacterAnimation : MonoBehaviour
         shield.enabled = false;
         shieldLeft.enabled = false;
         shieldRight.enabled = false;
-        RectTransform swordTransform = sword.GetComponent<RectTransform>();
-        SpriteRenderer swordRenderer = sword.GetComponent<SpriteRenderer>();
         swordRenderer.enabled = true;
         if (lastMovement.x > 0)
         {
