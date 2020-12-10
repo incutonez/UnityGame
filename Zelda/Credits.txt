@@ -1,4 +1,13 @@
-
-Sounds - https://www.sounds-resource.com/nes/legendofzelda/sound/4590/
-       - http://noproblo.dayjo.org/ZeldaSounds/ (for naming sound effects)
-Music  - https://zelda.gamepedia.com/Category:The_Legend_of_Zelda_Sounds
+Sprites
+- http://www.zeldagalaxy.com/sprites-nes-loz/
+- Link
+-- http://www.zeldagalaxy.com/wp-content/img/sprites/nes/loz/link.png
+- Items
+-- http://www.zeldagalaxy.com/wp-content/img/sprites/nes/loz/items.png
+Sounds
+- https://www.sounds-resource.com/nes/legendofzelda/sound/4590/
+- http://noproblo.dayjo.org/ZeldaSounds/ (for naming sound effects)
+Music
+- https://zelda.gamepedia.com/Category:The_Legend_of_Zelda_Sounds
+- Converting Music to WAV
+-- https://cloudconvert.com/oga-to-wav
