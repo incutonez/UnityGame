@@ -28,4 +28,39 @@ public class Item
                 return false;
         }
     }
+
+    public bool IsSword()
+    {
+        switch (itemType)
+        {
+            case Items.Sword:
+            case Items.SwordMagical:
+            case Items.SwordWhite:
+                return true;
+        }
+        return false;
+    }
+
+    public bool IsRing()
+    {
+        switch(itemType)
+        {
+            case Items.RingGreen:
+            case Items.RingBlue:
+            case Items.RingRed:
+                return true;
+        }
+        return false;
+    }
+
+    public bool IsShield()
+    {
+        switch(itemType)
+        {
+            case Items.Shield:
+            case Items.ShieldMagical:
+                return true;
+        }
+        return false;
+    }
 }

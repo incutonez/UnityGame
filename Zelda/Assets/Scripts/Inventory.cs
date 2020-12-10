@@ -16,6 +16,7 @@ public class InventoryChangeArgs : EventArgs
 public class Inventory
 {
     public event Action<Inventory, InventoryChangeArgs> OnItemListChanged;
+    public bool hasSword = false;
 
     private Action<Item> _useItemAction;
     private List<Item> items;
@@ -51,6 +52,10 @@ public class Inventory
             {
                 items.Add(item);
             }
+            if (item.IsSword())
+            {
+                hasSword = true;
+            }
             OnItemListChanged(this, new InventoryChangeArgs(item));
         }
     }
@@ -77,6 +82,10 @@ public class Inventory
         else
         {
             items.Remove(item);
+        }
+        if (item.IsSword())
+        {
+            hasSword = false;
         }
         OnItemListChanged(this, new InventoryChangeArgs(item, true));
     }

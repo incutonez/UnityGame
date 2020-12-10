@@ -5,6 +5,7 @@ public class UIInventory : MonoBehaviour
 {
     public SuitHandler suitHandler;
     public ShieldHandler shieldHandler;
+    public SwordHandler swordHandler;
 
     private Inventory inventory;
     private PlayerCharacter player;
@@ -25,16 +26,17 @@ public class UIInventory : MonoBehaviour
         Item item = args.item;
         if (item != null)
         {
-            switch(item.itemType)
+            if (item.IsRing())
             {
-                case Items.RingBlue:
-                case Items.RingRed:
-                    suitHandler.SetSuitColor(item.itemType);
-                    break;
-                case Items.Shield:
-                case Items.ShieldMagical:
-                    shieldHandler.SetShield(item.itemType);
-                    break;
+                suitHandler.SetSuitColor(item.itemType);
+            }
+            else if (item.IsShield())
+            {
+                shieldHandler.SetShield(item.itemType);
+            }
+            else if (item.IsSword())
+            {
+                swordHandler.SetSword(item);
             }
         }
     }

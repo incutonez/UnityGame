@@ -57,10 +57,13 @@ public class PlayerCharacter : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        isAttacking = true;
-        yield return StartCoroutine(characterAnimation.Attack());
-        lastAttack = Constants.ATTACK_DELAY;
-        isAttacking = false;
+        if (inventory.hasSword)
+        {
+            isAttacking = true;
+            yield return StartCoroutine(characterAnimation.Attack());
+            lastAttack = Constants.ATTACK_DELAY;
+            isAttacking = false;
+        }
     }
 
     // Taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8
@@ -78,8 +81,8 @@ public class PlayerCharacter : MonoBehaviour
                 float moveY = 0f;
                 if (lastAttack.HasValue)
                 {
-                    lastAttack -= Time.deltaTime;
                     // Keep decrementing until we've hit the threshold
+                    lastAttack -= Time.deltaTime;
                     if (lastAttack <= Constants.ATTACK_DELAY_THRESHOLD)
                     {
                         lastAttack = null;

@@ -11,8 +11,9 @@ public class CharacterAnimation : MonoBehaviour
     private SpriteRenderer shield;
     private SpriteRenderer shieldLeft;
     private SpriteRenderer shieldRight;
+    private GameObject sword;
     private GameObject body;
-    private const float ATTACK_LENGTH = 0.5f;
+    private const float ATTACK_LENGTH = 0.3f;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class CharacterAnimation : MonoBehaviour
         shield = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         shieldRight = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
         shieldLeft = transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
+        sword = transform.GetChild(4).gameObject;
         Vector3 spriteSize = body.GetComponent<SpriteRenderer>().sprite.bounds.size;
         // Need to make sure our character is sized properly with both the transform and collider
         transform.sizeDelta = spriteSize;
@@ -64,7 +66,35 @@ public class CharacterAnimation : MonoBehaviour
         shield.enabled = false;
         shieldLeft.enabled = false;
         shieldRight.enabled = false;
+        RectTransform swordTransform = sword.GetComponent<RectTransform>();
+        SpriteRenderer swordRenderer = sword.GetComponent<SpriteRenderer>();
+        swordRenderer.enabled = true;
+        if (lastMovement.x > 0)
+        {
+            swordTransform.localPosition = Constants.SWORD_RIGHT;
+            swordTransform.localRotation = Constants.SWORD_X_ROTATION;
+            swordRenderer.flipY = false;
+        }
+        else if (lastMovement.x < 0)
+        {
+            swordTransform.localPosition = Constants.SWORD_LEFT;
+            swordTransform.localRotation = Constants.SWORD_X_ROTATION;
+            swordRenderer.flipY = true;
+        }
+        else if (lastMovement.y > 0)
+        {
+            swordTransform.localPosition = Constants.SWORD_UP;
+            swordTransform.localRotation = Constants.SWORD_Y_ROTATION;
+            swordRenderer.flipY = false;
+        }
+        else if (lastMovement.y < 0 || lastMovement == Vector3.zero)
+        {
+            swordTransform.localPosition = Constants.SWORD_DOWN;
+            swordTransform.localRotation = Constants.SWORD_Y_ROTATION;
+            swordRenderer.flipY = true;
+        }
         yield return new WaitForSeconds(ATTACK_LENGTH);
         animator.SetBool("isAttacking", false);
+        swordRenderer.enabled = false;
     }
 }
