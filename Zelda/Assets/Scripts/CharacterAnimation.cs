@@ -17,7 +17,7 @@ public class CharacterAnimation : MonoBehaviour
     private GameObject body;
     private const float ATTACK_LENGTH = 0.3f;
 
-    private void Awake()
+    private void Start()
     {
         worldObjectSize = GetComponent<WorldObjectSize>();
         body = transform.GetChild(0).gameObject;
@@ -95,6 +95,8 @@ public class CharacterAnimation : MonoBehaviour
             swordTransform.localRotation = Constants.SWORD_Y_ROTATION;
             swordRenderer.flipY = true;
         }
+        // TODOJEF: Have to determine which Sword FX should play... need to know if at full health
+        AudioManager.Instance.PlayFX(Enums.Audio.FX.SwordSlash);
         yield return new WaitForSeconds(ATTACK_LENGTH);
         animator.SetBool("isAttacking", false);
         swordRenderer.enabled = false;

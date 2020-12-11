@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
@@ -24,6 +25,11 @@ public static class EnumExtensions
         return Enum.GetValues(typeof(T)).Cast<T>().ToList();
     }
 
+    public static string GetDescription(this Enum value)
+    {
+        return GetCustomAttr(value, "Description");
+    }
+
     public static string GetCustomAttr(this Enum value, string propertyName)
     {
         var type = value.GetType();
@@ -31,10 +37,22 @@ public static class EnumExtensions
         var field = type.GetField(name);
         if (field != null)
         {
-            var attr = field.GetCustomAttribute<CustomAttribute>();
-            if (attr != null)
+            
+            if (propertyName == "Description")
             {
-                return attr.Value;
+                var attr = field.GetCustomAttribute<DescriptionAttribute>();
+                if (attr != null)
+                {
+                    return attr.Description;
+                }
+            }
+            else
+            {
+                var attr = field.GetCustomAttribute<CustomAttribute>();
+                if (attr != null)
+                {
+                    return attr.Value;
+                }
             }
         }
         return name;

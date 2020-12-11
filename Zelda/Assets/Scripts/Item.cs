@@ -1,4 +1,5 @@
 ﻿using Enums;
+using Enums.Audio;
 using System;
 using UnityEngine;
 
@@ -11,6 +12,29 @@ public class Item
     public Sprite GetSprite()
     {
         return ItemManager.Instance.LoadSpriteByItemType(itemType);
+    }
+
+    public void PlaySound()
+    {
+        FX? sound = null;
+        switch (itemType)
+        {
+            case Items.Heart:
+            case Items.Key:
+                sound = FX.HeartPickup;
+                break;
+            case Items.RupeeFive:
+            case Items.RupeeOne:
+                sound = FX.Rupee;
+                break;
+            case Items.Bomb:
+                sound = FX.ItemPickup;
+                break;
+        }
+        if (sound.HasValue)
+        {
+            AudioManager.Instance.PlayFX(sound.Value);
+        }
     }
 
     // TODOJEF: Add GetPickupSound and play it when item is picked up

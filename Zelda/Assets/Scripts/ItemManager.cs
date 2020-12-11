@@ -44,16 +44,17 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     public void LoadAllItems()
     {
-        var x = -1.9f;
-        var y = 0.9f;
+        const float xMax = 1.3f;
+        var x = -xMax;
+        var y = 0.7f;
         List<Items> items = EnumExtensions.GetValues<Items>();
         foreach (Items item in items)
         {
             ItemWorld.SpawnItem(new Vector3(x, y), new Item { itemType = item });
             x += .2f;
-            if (x > 1.9)
+            if (x > xMax)
             {
-                x = -1.9f;
+                x = -xMax;
                 y -= 0.2f;
             }
         }

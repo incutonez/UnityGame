@@ -56,6 +56,7 @@ public class Inventory
             {
                 hasSword = true;
             }
+            item.PlaySound();
             OnItemListChanged(this, new InventoryChangeArgs(item));
         }
     }
