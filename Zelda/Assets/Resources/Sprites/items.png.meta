@@ -109,10 +109,10 @@ TextureImporter:
     second: ShieldSide
   - first:
       213: 5947598201806246533
-    second: TriforceShard2
+    second: TriforceShardBlue
   - first:
       213: 124106431076995637
-    second: TriforceShard1
+    second: TriforceShard
   - first:
       213: 5508725064705088119
     second: Candle
@@ -128,6 +128,9 @@ TextureImporter:
   - first:
       213: 3864835576925441180
     second: ShieldMagicalSide
+  - first:
+      213: 3158488010477605343
+    second: RingGreen
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -948,7 +951,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TriforceShard2
+      name: TriforceShardBlue
       rect:
         serializedVersion: 2
         x: 323
@@ -969,7 +972,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TriforceShard1
+      name: TriforceShard
       rect:
         serializedVersion: 2
         x: 343
@@ -1061,7 +1064,7 @@ TextureImporter:
         width: 7
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1082,7 +1085,7 @@ TextureImporter:
         width: 2
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1090,6 +1093,27 @@ TextureImporter:
       bones: []
       spriteID: c9cceedfa77a2a530800000000000000
       internalID: 3864835576925441180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingGreen
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 22
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd119d37c1435db20800000000000000
+      internalID: 3158488010477605343
       vertices: []
       indices: 
       edges: []

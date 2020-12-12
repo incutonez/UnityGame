@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WorldObjectSize : MonoBehaviour
+public class WorldObjectData : MonoBehaviour
 {
     private new RectTransform transform;
     private new SpriteRenderer renderer;
@@ -12,6 +12,11 @@ public class WorldObjectSize : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
         SetObjectSize(renderer.bounds.size);
+    }
+
+    public void SetObjectName(string name)
+    {
+        transform.name = name;
     }
 
     public void SetObjectSize(Vector3 size)

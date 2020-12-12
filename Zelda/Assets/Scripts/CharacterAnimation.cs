@@ -12,7 +12,7 @@ public class CharacterAnimation : MonoBehaviour
     private SpriteRenderer shield;
     private SpriteRenderer shieldLeft;
     private SpriteRenderer shieldRight;
-    private WorldObjectSize worldObjectSize;
+    private WorldObjectData worldObjectSize;
     private RectTransform swordTransform;
     private SpriteRenderer swordRenderer;
     private GameObject body;
@@ -20,7 +20,7 @@ public class CharacterAnimation : MonoBehaviour
 
     private void Start()
     {
-        worldObjectSize = GetComponent<WorldObjectSize>();
+        worldObjectSize = GetComponent<WorldObjectData>();
         body = transform.GetChild(0).gameObject;
         shield = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         shieldRight = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();

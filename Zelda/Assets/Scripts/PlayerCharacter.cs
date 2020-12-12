@@ -35,7 +35,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
+        WorldItem itemWorld = collision.GetComponent<WorldItem>();
         if (itemWorld != null)
         {
             inventory.AddItem(itemWorld.GetItem());

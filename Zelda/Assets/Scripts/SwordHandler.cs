@@ -3,7 +3,7 @@
 public class SwordHandler : MonoBehaviour
 {
     public SpriteRenderer sword;
-    public WorldObjectSize worldObjectSize;
+    public WorldObjectData worldObjectData;
 
     private void Awake()
     {
@@ -13,6 +13,6 @@ public class SwordHandler : MonoBehaviour
     public void SetSword(Item item)
     {
         sword.sprite = item?.GetSprite();
-        worldObjectSize.SetObjectSize(sword.sprite.bounds.size);
+        worldObjectData.SetObjectSize(sword.sprite.bounds.size);
     }
 }

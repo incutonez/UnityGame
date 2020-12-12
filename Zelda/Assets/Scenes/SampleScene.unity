@@ -131,10 +131,10 @@ GameObject:
   m_Component:
   - component: {fileID: 17339900}
   - component: {fileID: 17339901}
-  - component: {fileID: 17339902}
   - component: {fileID: 17339903}
   - component: {fileID: 17339904}
   - component: {fileID: 17339905}
+  - component: {fileID: 17339902}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 17339899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a686e900dc4f5ea43bcfbe2b387bb8fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 84dc9b4c9dfde6e489b31b5af197b382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &17339903
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 17339901}
-  worldObjectSize: {fileID: 17339902}
+  worldObjectData: {fileID: 17339902}
 --- !u!61 &17339904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 863098405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a686e900dc4f5ea43bcfbe2b387bb8fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 84dc9b4c9dfde6e489b31b5af197b382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &936847969

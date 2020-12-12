@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 
-public class ItemWorld : MonoBehaviour
+public class WorldItem : MonoBehaviour
 {
     public Item item;
     public new SpriteRenderer renderer;
     public new RectTransform transform;
     public new BoxCollider2D collider;
 
-    private WorldObjectSize worldObjectSize;
+    private WorldObjectData worldObjectData;
 
-    public static ItemWorld SpawnItem(Vector3 position, Item item)
+    public static WorldItem SpawnItem(Vector3 position, Item item)
     {
         RectTransform transform = Instantiate(ItemManager.Instance.prefab, position, Quaternion.identity);
 
-        ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
+        WorldItem itemWorld = transform.GetComponent<WorldItem>();
         itemWorld.SetItem(item);
 
         return itemWorld;
@@ -21,10 +21,10 @@ public class ItemWorld : MonoBehaviour
 
     private void Awake()
     {
-        worldObjectSize = GetComponent<WorldObjectSize>();
+        worldObjectData = GetComponent<WorldObjectData>();
     }
 
-    public static ItemWorld DropItem(Vector3 dropPosition, Item item)
+    public static WorldItem DropItem(Vector3 dropPosition, Item item)
     {
         return SpawnItem(dropPosition, item);
     }
@@ -37,13 +37,18 @@ public class ItemWorld : MonoBehaviour
         {
             renderer.sprite = sprite;
             // Let's use the sprite's name to name the cloned object
-            transform.name = sprite.name;
-            worldObjectSize.SetObjectSize(sprite.bounds.size);
+            worldObjectData.SetObjectName(sprite.name);
+            worldObjectData.SetObjectSize(sprite.bounds.size);
             // If we have a Heart, we need to make it blink, so let's add that animation
             if (item.itemType == Items.Heart)
             {
                 Animator anim = gameObject.AddComponent<Animator>();
-                anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("HeartBlinkController");
+                anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Controllers/HeartBlinkController");
+            }
+            else if (item.itemType == Items.TriforceShard)
+            {
+                Animator anim = gameObject.AddComponent<Animator>();
+                anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Controllers/TriforceBlinkController");
             }
         }
     }
