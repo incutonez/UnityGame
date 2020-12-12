@@ -13,3 +13,4 @@ Music
 -- https://cloudconvert.com/oga-to-wav
 General Zeldapedia
 - https://zelda.gamepedia.com/Enemies_in_The_Legend_of_Zelda
+- https://www.zeldadungeon.net/wiki/The_Legend_of_Zelda_Enemies

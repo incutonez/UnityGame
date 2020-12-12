@@ -17,6 +17,37 @@ public class CustomAttribute : Attribute
     }
 }
 
+// TODO: Create DamageAttribute
+public class HealthAttribute : Attribute
+{
+    public int Value1 { get; set; }
+    public int Value2 { get; set; }
+    public int Value3 { get; set; }
+
+    internal HealthAttribute(int value1 = 0, int value2 = 0, int value3 = 0)
+    {
+        Value1 = value1;
+        if (value2 == 0)
+        {
+            float temp = value1 / 2f;
+            Value2 = (int) Math.Ceiling(temp);
+        }
+        else
+        {
+            Value2 = value2;
+        }
+        if (value3 == 0)
+        {
+            float temp = value1 / 4f;
+            Value3 = (int)Math.Ceiling(temp);
+        }
+        else
+        {
+            Value3 = value3;
+        }
+    }
+}
+
 public static class EnumExtensions
 {
     // Taken from https://stackoverflow.com/questions/972307/how-to-loop-through-all-enum-values-in-c

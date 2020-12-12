@@ -26,8 +26,10 @@
     PowerBracelet,
     // Raft changes colors based on suit
     Raft,
+    // Cuts damage by 1/2
     RingBlue,
     RingGreen,
+    // Cuts damage by 1/4
     RingRed,
     RupeeFive,
     RupeeOne,
