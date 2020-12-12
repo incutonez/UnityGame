@@ -1,5 +1,4 @@
-﻿using Enums;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 public class SuitHandler : MonoBehaviour

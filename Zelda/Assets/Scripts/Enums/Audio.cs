@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Enums.Audio
+namespace Audio
 {
     public enum FX
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Audio;
+using System.Collections;
 using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour
@@ -96,7 +97,7 @@ public class CharacterAnimation : MonoBehaviour
             swordRenderer.flipY = true;
         }
         // TODOJEF: Have to determine which Sword FX should play... need to know if at full health
-        AudioManager.Instance.PlayFX(Enums.Audio.FX.SwordSlash);
+        AudioManager.Instance.PlayFX(FX.SwordSlash);
         yield return new WaitForSeconds(ATTACK_LENGTH);
         animator.SetBool("isAttacking", false);
         swordRenderer.enabled = false;
