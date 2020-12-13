@@ -11,94 +11,155 @@
 
     public enum Enemies
     {
+        /// <summary>
+        /// Randomly spawn as very fast or slow
+        /// </summary>
+        [Damage(1)]
         [Health(3)]
         Armos,
+        [Damage(1)]
         [Health()]
         Boulder,
+        [Damage()]
         [Health()]
         Bubble,
+        [Damage()]
         [Health()]
         BubbleBlue,
+        [Damage()]
         [Health()]
         BubbleRed,
+        [Damage(2)]
         [Health(4)]
         Darknut,
+        [Damage(4)]
         [Health(8)]
         DarknutBlue,
+        [Damage(1)]
         [Health(1)]
         Gel,
+        /// <summary>
+        /// Other health:
+        /// You can only destroy the main Ghini... the other ones cannot be attacked
+        /// </summary>
+        [Damage(1)]
         [Health(11)]
         Ghini,
+        [Damage(4)]
         [Health(6, 4, 2)]
         Gibdo,
+        // TODO: Verify this damage
+        [Damage(2, 2)]
+        [Health()]
         GleeokHead,
+        [Damage(1, 2)]
         [Health(3)]
         Goriya,
-        // TODO: This needs to round up when multiplier is 2
+        [Damage(2, 2)]
         [Health(5)]
         GoriyaBlue,
+        [Damage(1)]
         [Health(1)]
         Keese,
+        [Damage(1)]
         [Health(1)]
         KeeseBlue,
+        [Damage(1)]
         [Health(1)]
         KeeseRed,
-        // Always takes 4 hits to kill
+        [Damage(4)]
         [Health(4, 4, 4)]
         Lanmola,
-        // Always takes 4 hits to kill
+        /// <summary>
+        /// This one moves faster than the red version
+        /// </summary>
+        [Damage(4)]
         [Health(4, 4, 4)]
         LanmolaBlue,
+        [Damage(1)]
         [Health(2)]
         Leever,
+        [Damage(2)]
         [Health(4)]
         LeeverBlue,
+        /// <summary>
+        /// If sucked in, the player will randomly lose their Magical Shield
+        /// </summary>
+        [Damage(2)]
         [Health(10)]
         LikeLike,
+        [Damage(2, 2)]
         [Health(4)]
         Lynel,
+        [Damage(4, 4)]
         [Health(6)]
         LynelBlue,
+        [Damage(1, 1)]
         [Health(2)]
         Moblin,
+        [Damage(1, 1)]
         [Health(3)]
         MoblinBlue,
-        // Always takes 5 hits to kill
+        [Damage(1)]
         [Health(5, 5, 5)]
         Moldorm,
+        [Damage(1, 1)]
         [Health(1)]
         Octorok,
+        [Damage(1, 1)]
         [Health(2)]
         OctorokBlue,
+        [Damage(4)]
         [Health(10)]
         Patra,
+        [Damage(1)]
         [Health(2)]
         Peahat,
+        [Damage(4)]
         [Health(10)]
         PolsVoice,
+        [Damage(1)]
         [Health(1)]
         Rope,
+        [Damage(1)]
         [Health(4)]
         RopeBlue,
+        // TODO: Verify the shoot damage of the sword
+        [Damage(1/4, 1/4)]
         [Health(2)]
         Stalfos,
+        [Damage(1)]
         [Health(1)]
         Tektite,
+        [Damage(1)]
         [Health(1)]
         TektiteBlue,
+        [Damage(1)]
         [Health()]
         Trap,
-        // Health is 1, however, when it's hit without magical sword, it turns into 2 Keese
+        /// <summary>
+        /// When it's hit without magical sword, it turns into 2 Keese
+        /// </summary>
+        [Damage(2)]
         [Health(1)]
         Vire,
+        /// <summary>
+        /// When this catches player, the player returns to the beginning of the castle
+        /// </summary>
+        [Damage(1)]
         [Health(3)]
         Wallmaster,
+        [Damage(2, 8)]
         [Health(3)]
         Wizzrobe,
+        // TODO: Verify the shoot damage
+        [Damage(4, 4)]
         [Health(5)]
         WizzrobeBlue,
+        [Damage(2)]
         [Health(1)]
         Zol,
+        [Damage(1, 1)]
         [Health(2)]
         Zora
     }
@@ -115,6 +176,7 @@
         /// Bow - 3 hits
         /// Wand - 3 hits
         /// </summary>
+        [Damage(1, 1)]
         [Health(6)]
         Aquamentus,
         /// <summary>
@@ -129,6 +191,7 @@
         /// Bombs kill in 2 hits, same as magical sword
         /// Bow and Wand kill in 4 hits, same as white sword
         /// </summary>
+        [Damage(4)]
         [Health(8)]
         Digdogger,
         /// <summary>
@@ -140,6 +203,7 @@
         /// Other health:
         /// If bomb is placed on its back, you can attack with sword for 1 hit kill
         /// </summary>
+        [Damage(2)]
         [Health(2, 2, 2)]
         Dodongo,
         /// <summary>
@@ -148,6 +212,7 @@
         /// Other health:
         /// Must be defeated by silver arrow, and if he's not hit in the stunned state, then he will regain full health
         /// </summary>
+        [Damage(4, 2)]
         [Health(16)]
         Ganon,
         /// <summary>
@@ -159,7 +224,9 @@
         /// Other health:
         /// The health shown here is for each head
         /// Wand will take out head in 4 hits... same damage as white sword
+        /// The Magical Shield cannot block its fireballs
         /// </summary>
+        [Damage(2, 2)]
         [Health(8)]
         Gleeok,
         /// <summary>
@@ -169,6 +236,7 @@
         /// Other health:
         /// Must have eye open to hurt
         /// </summary>
+        [Damage(2, 2)]
         [Health(1)]
         Gohma,
         /// <summary>
@@ -180,6 +248,8 @@
         /// Other health:
         /// Must have eye open to hurt
         /// </summary>
+        // TODO: Verify damage
+        [Damage(2, 2)]
         [Health(3, 3, 3)]
         GohmaBlue,
         /// <summary>
@@ -191,6 +261,7 @@
         /// Each tentacle requires that many hits, so it's [4, 2, 1] x 4 tentacles
         /// If a tentacle is hit with 1 bomb, it's destroyed... blast radius could destroy multiple
         /// </summary>
+        [Damage(2, 2)]
         [Health(4, 2, 1)]
         Manhandla
     }

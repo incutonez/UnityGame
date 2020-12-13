@@ -17,33 +17,51 @@ public class CustomAttribute : Attribute
     }
 }
 
-// TODO: Create DamageAttribute
+public class DamageAttribute : Attribute
+{
+    /// <summary>
+    /// This is based on 1/2 heart, so a Damage of 1 will take away:
+    /// - 1/2 heart with green ring
+    /// - 1/4 heart with blue ring
+    /// - 1/8 heart with red ring
+    /// </summary>
+    public float TouchDamage { get; set; }
+
+    public float WeaponDamage { get; set; }
+
+    internal DamageAttribute(float touchDamage = 0f, float weaponDamage = 0f)
+    {
+        TouchDamage = touchDamage;
+        WeaponDamage = weaponDamage;
+    }
+}
+
 public class HealthAttribute : Attribute
 {
-    public int Value1 { get; set; }
-    public int Value2 { get; set; }
-    public int Value3 { get; set; }
+    public int BaseHealth { get; set; }
+    public int WhiteSwordHealth { get; set; }
+    public int MagicalSwordHealth { get; set; }
 
-    internal HealthAttribute(int value1 = 0, int value2 = 0, int value3 = 0)
+    internal HealthAttribute(int baseHealth = 0, int whiteSwordHealth = 0, int magicalSwordHealth = 0)
     {
-        Value1 = value1;
-        if (value2 == 0)
+        BaseHealth = baseHealth;
+        if (whiteSwordHealth == 0)
         {
-            float temp = value1 / 2f;
-            Value2 = (int) Math.Ceiling(temp);
+            float temp = baseHealth / 2f;
+            WhiteSwordHealth = (int) Math.Ceiling(temp);
         }
         else
         {
-            Value2 = value2;
+            WhiteSwordHealth = whiteSwordHealth;
         }
-        if (value3 == 0)
+        if (magicalSwordHealth == 0)
         {
-            float temp = value1 / 4f;
-            Value3 = (int)Math.Ceiling(temp);
+            float temp = baseHealth / 4f;
+            MagicalSwordHealth = (int)Math.Ceiling(temp);
         }
         else
         {
-            Value3 = value3;
+            MagicalSwordHealth = magicalSwordHealth;
         }
     }
 }
