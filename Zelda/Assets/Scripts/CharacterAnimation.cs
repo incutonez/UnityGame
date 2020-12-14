@@ -71,7 +71,7 @@ public class CharacterAnimation : MonoBehaviour
         shield.enabled = false;
         shieldLeft.enabled = false;
         shieldRight.enabled = false;
-        swordRenderer.enabled = true;
+        swordRenderer.gameObject.SetActive(true);
         if (lastMovement.x > 0)
         {
             swordTransform.localPosition = Constants.SWORD_RIGHT;
@@ -100,6 +100,6 @@ public class CharacterAnimation : MonoBehaviour
         AudioManager.Instance.PlayFX(FX.SwordSlash);
         yield return new WaitForSeconds(ATTACK_LENGTH);
         animator.SetBool("isAttacking", false);
-        swordRenderer.enabled = false;
+        swordRenderer.gameObject.SetActive(false);
     }
 }

@@ -38,31 +38,17 @@ public class DamageAttribute : Attribute
 
 public class HealthAttribute : Attribute
 {
-    public int BaseHealth { get; set; }
-    public int WhiteSwordHealth { get; set; }
-    public int MagicalSwordHealth { get; set; }
+    /// <summary>
+    /// The health/damage system is based on 1/2 hearts
+    /// </summary>
+    public int Health { get; set; }
 
-    internal HealthAttribute(int baseHealth = 0, int whiteSwordHealth = 0, int magicalSwordHealth = 0)
+    public float Modifier { get; set; }
+
+    internal HealthAttribute(int health = 0, float modifier = 1f)
     {
-        BaseHealth = baseHealth;
-        if (whiteSwordHealth == 0)
-        {
-            float temp = baseHealth / 2f;
-            WhiteSwordHealth = (int) Math.Ceiling(temp);
-        }
-        else
-        {
-            WhiteSwordHealth = whiteSwordHealth;
-        }
-        if (magicalSwordHealth == 0)
-        {
-            float temp = baseHealth / 4f;
-            MagicalSwordHealth = (int)Math.Ceiling(temp);
-        }
-        else
-        {
-            MagicalSwordHealth = magicalSwordHealth;
-        }
+        Health = health;
+        Modifier = modifier;
     }
 }
 
@@ -77,6 +63,14 @@ public static class EnumExtensions
     public static string GetDescription(this Enum value)
     {
         return GetCustomAttr(value, "Description");
+    }
+
+    public static T GetAttribute<T>(this Enum value) where T : Attribute
+    {
+        var type = value.GetType();
+        var name = Enum.GetName(type, value);
+        var field = type.GetField(name);
+        return field?.GetCustomAttribute<T>();
     }
 
     public static string GetCustomAttr(this Enum value, string propertyName)

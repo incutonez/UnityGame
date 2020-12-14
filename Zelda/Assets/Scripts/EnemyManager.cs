@@ -1,17 +1,22 @@
 ﻿using NPCs;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+/// <summary>
+/// This class will manage all of the enemies needed for the current screen
+/// </summary>
+public class EnemyManager : BaseManager<EnemyManager>
 {
     private Sprite[] sprites;
-
-    public static EnemyManager Instance { get; private set; }
-    public RectTransform prefab;
+    private List<WorldEnemy> activeEnemies = new List<WorldEnemy>();
 
     private void Awake()
     {
-        Instance = this;
         sprites = Resources.LoadAll<Sprite>("Sprites/enemies");
+        activeEnemies.Add(Spawn<WorldEnemy, Enemy>(new Vector3(-0.245f, 0.004f), new Enemy { enemyType = Enemies.Armos }));
+        activeEnemies.Add(Spawn<WorldEnemy, Enemy>(new Vector3(-0.45f, 0.004f), new Enemy { enemyType = Enemies.Gibdo }));
+        activeEnemies.Add(Spawn<WorldEnemy, Enemy>(new Vector3(-0.245f, -0.2f), new Enemy { enemyType = Enemies.Bubble }));
+        activeEnemies.Add(Spawn<WorldEnemy, Enemy>(new Vector3(-0.45f, -0.2f), new Enemy { enemyType = Enemies.Moldorm }));
     }
 
     public Sprite LoadSpriteByType(Enemies enemyType)

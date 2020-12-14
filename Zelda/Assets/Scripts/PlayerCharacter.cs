@@ -43,6 +43,15 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        WorldEnemy worldEnemy = collision.gameObject.GetComponent<WorldEnemy>();
+        if (worldEnemy != null)
+        {
+            Debug.Log(worldEnemy.GetTouchDamage());
+        }
+    }
+
     private void UseItem(Item item)
     {
         switch (item.itemType)

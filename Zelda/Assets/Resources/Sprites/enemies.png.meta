@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 2731795287329381114
-    second: Octorok1
+    second: Octorok
   - first:
       213: -3351989875833439213
-    second: OctorokBlue1
+    second: OctorokBlue
   - first:
       213: -8108438390446734492
-    second: Wallmaster1
+    second: Wallmaster
   - first:
       213: -8384590935982494654
-    second: Fire1
+    second: Fire
   - first:
       213: -4253028335022237997
     second: Moldorm
@@ -52,7 +52,7 @@ TextureImporter:
     second: BubbleBlue
   - first:
       213: 1017871411792229582
-    second: GoriyaDown1
+    second: Goriya
   - first:
       213: -7143632009852538275
     second: GoriyaLeft1
@@ -64,7 +64,7 @@ TextureImporter:
     second: GoriyaRight1
   - first:
       213: -4535217547422562818
-    second: GoriyaBlueDown1
+    second: GoriyaBlue
   - first:
       213: 7842233440562819812
     second: GoriyaBlueLeft1
@@ -76,19 +76,19 @@ TextureImporter:
     second: GoriyaBlueRight1
   - first:
       213: 262253260368052137
-    second: Wizzrobe1
+    second: Wizzrobe
   - first:
       213: -5661289293352146724
     second: WizzrobeUp1
   - first:
       213: 3043105842737735301
-    second: WizzrobeBlue1
+    second: WizzrobeBlue
   - first:
       213: -8137250916114564832
     second: WizzrobeBlueUp1
   - first:
       213: -5571332060652782084
-    second: Bubble1
+    second: Bubble
   - first:
       213: -6401660212284299933
     second: GoriyaDown2
@@ -130,7 +130,7 @@ TextureImporter:
     second: Bubble2
   - first:
       213: -5032397523261126367
-    second: MoblinDown1
+    second: Moblin
   - first:
       213: 7919937908647015373
     second: MoblinLeft1
@@ -142,7 +142,7 @@ TextureImporter:
     second: MoblinRight1
   - first:
       213: -194386637390385213
-    second: MoblinBlueDown1
+    second: MoblinBlue
   - first:
       213: 1051372748379046019
     second: MoblinBlueLeft1
@@ -154,22 +154,22 @@ TextureImporter:
     second: MoblinBlueRight1
   - first:
       213: 8163972999559841902
-    second: VireDown1
+    second: Vire
   - first:
       213: 5677686872196009033
     second: VireUp1
   - first:
       213: -7994189068178414372
-    second: Ghini1
+    second: Ghini
   - first:
       213: 8570748866575639986
-    second: ArmosDown1
+    second: Armos
   - first:
       213: -8957942764683618044
     second: ArmosUp1
   - first:
       213: -5009223088708221049
-    second: Stalfos1
+    second: Stalfos
   - first:
       213: -2627461283470291371
     second: MoblinDown2
@@ -214,7 +214,7 @@ TextureImporter:
     second: Stalfos2
   - first:
       213: 8941338507466572697
-    second: DarknutDown1
+    second: Darknut
   - first:
       213: -5662386000544405352
     second: DarknutLeft1
@@ -226,7 +226,7 @@ TextureImporter:
     second: DarknutRight1
   - first:
       213: 6354982106924557840
-    second: DarknutBlueDown1
+    second: DarknutBlue
   - first:
       213: 3444227713701507361
     second: DarknutBlueLeft1
@@ -238,22 +238,22 @@ TextureImporter:
     second: DarknutBlueRight1
   - first:
       213: -4658705194732311462
-    second: Tektite1
+    second: Tektite
   - first:
       213: 2271430137087916446
-    second: TektiteBlue1
+    second: TektiteBlue
   - first:
       213: -8300600519577597338
-    second: PolsVoice1
+    second: PolsVoice
   - first:
       213: -3993904903862926201
-    second: Gibdo1
+    second: Gibdo
   - first:
       213: 1980107963563033508
-    second: Zol1
+    second: Zol
   - first:
       213: -3195840801307323683
-    second: Gel1
+    second: Gel
   - first:
       213: 1692377922297922022
     second: DarknutDown2
@@ -298,7 +298,7 @@ TextureImporter:
     second: Gel2
   - first:
       213: 4611623027099164205
-    second: LynelDown1
+    second: Lynel
   - first:
       213: 835451409009970712
     second: LynelLeft1
@@ -310,7 +310,7 @@ TextureImporter:
     second: LynelRight1
   - first:
       213: 430401237564966130
-    second: LynelBlueDown1
+    second: LynelBlue
   - first:
       213: -6743504569624285682
     second: LynelBlueLeft1
@@ -340,7 +340,7 @@ TextureImporter:
     second: LanmolaBlueBody
   - first:
       213: 1186816610272035890
-    second: LikeLike1
+    second: LikeLike
   - first:
       213: -6226229827694828804
     second: LynelDown2
@@ -367,25 +367,25 @@ TextureImporter:
     second: LynelBlueRight2
   - first:
       213: 4093250307981918749
-    second: Keese1
+    second: Keese
   - first:
       213: 8108314749691946806
     second: Keese2
   - first:
       213: 5730899517914627372
-    second: Peahat1
+    second: Peahat
   - first:
       213: -4549975877775080454
     second: Peahat2
   - first:
       213: 8539245964365713388
-    second: Rope1
+    second: Rope
   - first:
       213: -8196423631230817959
-    second: Rock1
+    second: Boulder
   - first:
       213: -2588703479434965918
-    second: Rock2
+    second: Boulder2
   - first:
       213: 1547570183778765006
     second: Water1
@@ -394,7 +394,7 @@ TextureImporter:
     second: Water2
   - first:
       213: 1631059834518842685
-    second: Zora1
+    second: Zora
   - first:
       213: 4614912668180481204
     second: Zora2
@@ -412,7 +412,7 @@ TextureImporter:
     second: Leever2
   - first:
       213: -1115400923130427973
-    second: Leever3
+    second: Leever
   - first:
       213: -7838671135713342971
     second: Patra
@@ -430,7 +430,7 @@ TextureImporter:
     second: LeeverBlue2
   - first:
       213: -8963490513782758220
-    second: LeeverBlue3
+    second: LeeverBlue
   - first:
       213: 5094182165897958284
     second: PatraHead1
@@ -522,7 +522,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Octorok1
+      name: Octorok
       rect:
         serializedVersion: 2
         x: 0
@@ -543,7 +543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OctorokBlue1
+      name: OctorokBlue
       rect:
         serializedVersion: 2
         x: 120
@@ -564,7 +564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wallmaster1
+      name: Wallmaster
       rect:
         serializedVersion: 2
         x: 241
@@ -585,7 +585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire1
+      name: Fire
       rect:
         serializedVersion: 2
         x: 300
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoriyaDown1
+      name: Goriya
       rect:
         serializedVersion: 2
         x: 1
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoriyaBlueDown1
+      name: GoriyaBlue
       rect:
         serializedVersion: 2
         x: 121
@@ -1026,7 +1026,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizzrobe1
+      name: Wizzrobe
       rect:
         serializedVersion: 2
         x: 240
@@ -1068,7 +1068,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizzrobeBlue1
+      name: WizzrobeBlue
       rect:
         serializedVersion: 2
         x: 330
@@ -1110,7 +1110,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubble1
+      name: Bubble
       rect:
         serializedVersion: 2
         x: 421
@@ -1404,7 +1404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoblinDown1
+      name: Moblin
       rect:
         serializedVersion: 2
         x: 0
@@ -1488,7 +1488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoblinBlueDown1
+      name: MoblinBlue
       rect:
         serializedVersion: 2
         x: 120
@@ -1572,7 +1572,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VireDown1
+      name: Vire
       rect:
         serializedVersion: 2
         x: 242
@@ -1614,7 +1614,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghini1
+      name: Ghini
       rect:
         serializedVersion: 2
         x: 300
@@ -1635,7 +1635,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArmosDown1
+      name: Armos
       rect:
         serializedVersion: 2
         x: 360
@@ -1677,7 +1677,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stalfos1
+      name: Stalfos
       rect:
         serializedVersion: 2
         x: 420
@@ -1992,7 +1992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DarknutDown1
+      name: Darknut
       rect:
         serializedVersion: 2
         x: 0
@@ -2076,7 +2076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DarknutBlueDown1
+      name: DarknutBlue
       rect:
         serializedVersion: 2
         x: 120
@@ -2160,7 +2160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tektite1
+      name: Tektite
       rect:
         serializedVersion: 2
         x: 240
@@ -2181,7 +2181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TektiteBlue1
+      name: TektiteBlue
       rect:
         serializedVersion: 2
         x: 270
@@ -2202,7 +2202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PolsVoice1
+      name: PolsVoice
       rect:
         serializedVersion: 2
         x: 300
@@ -2223,7 +2223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gibdo1
+      name: Gibdo
       rect:
         serializedVersion: 2
         x: 330
@@ -2244,7 +2244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zol1
+      name: Zol
       rect:
         serializedVersion: 2
         x: 381
@@ -2265,7 +2265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gel1
+      name: Gel
       rect:
         serializedVersion: 2
         x: 424
@@ -2580,7 +2580,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LynelDown1
+      name: Lynel
       rect:
         serializedVersion: 2
         x: 0
@@ -2664,7 +2664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LynelBlueDown1
+      name: LynelBlue
       rect:
         serializedVersion: 2
         x: 120
@@ -2874,7 +2874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LikeLike1
+      name: LikeLike
       rect:
         serializedVersion: 2
         x: 240
@@ -3063,7 +3063,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keese1
+      name: Keese
       rect:
         serializedVersion: 2
         x: 235
@@ -3105,7 +3105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Peahat1
+      name: Peahat
       rect:
         serializedVersion: 2
         x: 330
@@ -3147,7 +3147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rope1
+      name: Rope
       rect:
         serializedVersion: 2
         x: 1
@@ -3168,7 +3168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock1
+      name: Boulder
       rect:
         serializedVersion: 2
         x: 61
@@ -3189,7 +3189,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock2
+      name: Boulder2
       rect:
         serializedVersion: 2
         x: 90
@@ -3252,7 +3252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zora1
+      name: Zora
       rect:
         serializedVersion: 2
         x: 180
@@ -3378,7 +3378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Leever3
+      name: Leever
       rect:
         serializedVersion: 2
         x: 360
@@ -3504,7 +3504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeeverBlue3
+      name: LeeverBlue
       rect:
         serializedVersion: 2
         x: 360
