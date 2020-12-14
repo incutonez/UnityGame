@@ -28,9 +28,9 @@ public class CharacterAnimation : MonoBehaviour
         GameObject sword = transform.GetChild(4).gameObject;
         swordTransform = sword.GetComponent<RectTransform>();
         swordRenderer = sword.GetComponent<SpriteRenderer>();
-        Vector3 spriteSize = body.GetComponent<SpriteRenderer>().sprite.bounds.size;
+        //Vector3 spriteSize = body.GetComponent<SpriteRenderer>().sprite.bounds.size;
         // Need to make sure our character is sized properly with both the transform and collider
-        worldObjectSize.SetObjectSize(spriteSize);
+        //worldObjectSize.SetObjectSize(spriteSize);
     }
 
     // Idea taken from https://www.youtube.com/watch?v=Bf_5qIt9Gr8

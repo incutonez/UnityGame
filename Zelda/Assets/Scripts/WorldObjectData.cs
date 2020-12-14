@@ -11,12 +11,19 @@ public class WorldObjectData : MonoBehaviour
         transform = GetComponent<RectTransform>();
         renderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
-        SetObjectSize(renderer.bounds.size);
     }
 
-    public void SetObjectName(string name)
+    public void SetObjectData(Sprite sprite)
     {
-        transform.name = name;
+        // TODOJEF: Pick up here... renderer is null for the sword... something not right
+        renderer.sprite = sprite;
+        if (sprite != null)
+        {
+            Vector3 size = sprite.bounds.size;
+            transform.name = sprite.name;
+            SetTransformSize(size);
+            SetBoxColliderSize(size);
+        }
     }
 
     public void SetObjectSize(Vector3 size)

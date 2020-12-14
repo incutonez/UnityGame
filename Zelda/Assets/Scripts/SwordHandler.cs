@@ -8,11 +8,16 @@ public class SwordHandler : MonoBehaviour
     private Items swordType;
     private DamageAttribute damage;
 
+    public void Awake()
+    {
+        sword = GetComponent<SpriteRenderer>();
+        worldObjectData = GetComponent<WorldObjectData>();
+    }
+
     public void SetSword(Item item)
     {
-        sword.sprite = item?.GetSprite();
         swordType = item.itemType;
-        worldObjectData.SetObjectSize(sword.sprite.bounds.size);
+        worldObjectData.SetObjectData(item?.GetSprite());
         damage = swordType.GetAttribute<DamageAttribute>();
     }
 

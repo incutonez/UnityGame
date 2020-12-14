@@ -1,20 +1,12 @@
 ﻿using NPCs;
 using System;
-using UnityEngine;
 
 [Serializable]
 public class Enemy : BaseCharacter
 {
-    public Enemies enemyType;
-
-    public new Sprite GetSprite()
-    {
-        return EnemyManager.Instance.LoadSpriteByType(enemyType);
-    }
-
     public bool CanBomb()
     {
-        switch (enemyType)
+        switch (characterType)
         {
             // TODO: Fill out rest of enemies
             case Enemies.Armos:
@@ -25,7 +17,7 @@ public class Enemy : BaseCharacter
 
     public bool CanArrow()
     {
-        switch (enemyType)
+        switch (characterType)
         {
             // TODO: Fill out rest of enemies
             case Enemies.Armos:
@@ -36,7 +28,7 @@ public class Enemy : BaseCharacter
 
     public bool CanWand()
     {
-        switch (enemyType)
+        switch (characterType)
         {
             case Enemies.Armos:
                 return true;
@@ -46,7 +38,7 @@ public class Enemy : BaseCharacter
 
     public bool CanCandle()
     {
-        switch (enemyType)
+        switch (characterType)
         {
             case Enemies.Armos:
                 return true;
@@ -56,7 +48,7 @@ public class Enemy : BaseCharacter
 
     public bool CanBoomerang()
     {
-        switch (enemyType)
+        switch (characterType)
         {
             case Enemies.Armos:
                 return true;

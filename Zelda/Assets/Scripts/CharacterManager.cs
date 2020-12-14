@@ -1,12 +1,22 @@
-﻿using UnityEngine;
+﻿using NPCs;
+using UnityEngine;
 
 public class CharacterManager : BaseManager<CharacterManager>
 {
-    public static T Spawn<T, TOne>(Vector3 position, TOne character) where TOne : BaseCharacter where T : WorldCharacter<TOne>
+    public static CharacterManager Instance;
+
+    public void Awake()
+    {
+        Instance = this;
+        LoadSprites("Sprites/characters");
+    }
+
+    public static PlayerCharacter SpawnPlayer(Vector3 position)
     {
         RectTransform transform = Instantiate(Instance.prefab, position, Quaternion.identity);
 
-        T worldCharacter = transform.GetComponent<T>();
+        PlayerCharacter worldCharacter = transform.GetComponent<PlayerCharacter>();
+        BaseCharacter character = new BaseCharacter { characterType = Characters.Link };
         worldCharacter.SetCharacter(character);
 
         return worldCharacter;

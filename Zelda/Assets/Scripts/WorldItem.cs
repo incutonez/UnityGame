@@ -35,10 +35,7 @@ public class WorldItem : MonoBehaviour
         Sprite sprite = item.GetSprite();
         if (sprite != null)
         {
-            renderer.sprite = sprite;
-            // Let's use the sprite's name to name the cloned object
-            worldObjectData.SetObjectName(sprite.name);
-            worldObjectData.SetObjectSize(sprite.bounds.size);
+            worldObjectData.SetObjectData(sprite);
             // If we have a Heart, we need to make it blink, so let's add that animation
             if (item.itemType == Items.Heart)
             {

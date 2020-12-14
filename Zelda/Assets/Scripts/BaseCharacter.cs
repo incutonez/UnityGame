@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 [Serializable]
 public class BaseCharacter
@@ -13,25 +12,28 @@ public class BaseCharacter
     public float healthModifier { get; set; }
     public DamageAttribute attackStrength { get; set; }
 
-    public Sprite GetSprite()
-    {
-        return EnemyManager.Instance.LoadSpriteByType(characterType);
-    }
-
     public void Initialize()
     {
         SetHealth();
         SetAttackStrength();
     }
 
+    public string GetSpriteName()
+    {
+        return characterType.GetCustomAttr("Resource");
+    }
+
     public void SetHealth()
     {
         HealthAttribute healthAttribute = characterType.GetAttribute<HealthAttribute>();
-        int baseHealth = healthAttribute.Health;
-        if (baseHealth != 0)
+        if (healthAttribute != null)
         {
-            health = baseHealth;
-            healthModifier = healthAttribute.Modifier;
+            int baseHealth = healthAttribute.Health;
+            if (baseHealth != 0)
+            {
+                health = baseHealth;
+                healthModifier = healthAttribute.Modifier;
+            }
         }
     }
 

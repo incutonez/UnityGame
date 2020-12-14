@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : WorldCharacter<BaseCharacter>
 {
     public UIInventory uiInventory;
-    public Rigidbody2D rb2d;
     public const float SPEED = 1f;
-    public CharacterAnimation characterAnimation;
-    public Animator animator;
 
+    private Rigidbody2D rb2d;
+    private CharacterAnimation characterAnimation;
     private Inventory inventory;
     private Vector3 movement;
     private bool isAttacking = false;
     private float? lastAttack = 0f;
 
-    private void Awake()
+    public new void Awake()
     {
+        base.Awake();
+        rb2d = GetComponent<Rigidbody2D>();
+        characterAnimation = GetComponent<CharacterAnimation>();
         inventory = new Inventory(UseItem);
+        uiInventory = FindObjectOfType<UIInventory>();
+        uiInventory.swordHandler = transform.GetChild(4).GetComponent<SwordHandler>();
+        uiInventory.suitHandler = gameObject.GetComponentInChildren<SuitHandler>();
+        uiInventory.shieldHandler = transform.GetChild(1).GetComponent<ShieldHandler>();
         uiInventory.SetInventory(inventory);
         uiInventory.SetPlayer(this);
     }
