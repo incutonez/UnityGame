@@ -3,19 +3,16 @@ using UnityEngine;
 
 public class CharacterManager : BaseManager<CharacterManager>
 {
-    public static CharacterManager Instance;
-
     public void Awake()
     {
-        Instance = this;
         LoadSprites("Sprites/characters");
     }
 
-    public static PlayerCharacter SpawnPlayer(Vector3 position)
+    public static WorldPlayer SpawnPlayer(Vector3 position)
     {
-        RectTransform transform = Instantiate(Instance.prefab, position, Quaternion.identity);
+        RectTransform transform = Instantiate(Resources.Load<RectTransform>("Prefabs/Character"), position, Quaternion.identity);
 
-        PlayerCharacter worldCharacter = transform.GetComponent<PlayerCharacter>();
+        WorldPlayer worldCharacter = transform.GetComponent<WorldPlayer>();
         BaseCharacter character = new BaseCharacter { characterType = Characters.Link };
         worldCharacter.SetCharacter(character);
 

@@ -1,5 +1,4 @@
-﻿using NPCs;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// This class represents the Enemy class in the world

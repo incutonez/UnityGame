@@ -162,8 +162,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd24810f16425f4bbb6e7b580c69688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-    enemyType: 0
-  renderer: {fileID: 2227766466348373139}
-  transform: {fileID: 2227766466348373137}
-  collider: {fileID: 2227766466348373133}

@@ -6,6 +6,7 @@ public static class Constants
 
     public const float ATTACK_DELAY = 0.2f;
     public const float ATTACK_DELAY_THRESHOLD = 0f;
+    public const float ATTACK_LENGTH = 0.3f;
 
     /// <summary>
     /// The green sword is considered the base attack power for the game... it's 2 half hearts, so 1 whole heart is its damage

@@ -7,17 +7,16 @@ using UnityEngine;
 /// </summary>
 public class EnemyManager : BaseManager<EnemyManager>
 {
-    public static EnemyManager Instance;
-    private static List<WorldEnemy> activeEnemies = new List<WorldEnemy>();
+    private List<WorldEnemy> activeEnemies = new List<WorldEnemy>();
 
-    private void Awake()
+    public EnemyManager()
     {
-        Instance = this;
         LoadSprites("Sprites/enemies");
+        LoadPrefab("Prefabs/Enemy");
     }
 
-    public static void SpawnEnemy (Vector3 position, Enemies enemyType)
+    public void SpawnEnemy (Vector3 position, Enemies enemyType)
     {
-        activeEnemies.Add(Spawn<WorldEnemy, EnemyManager, Enemy, Enemies>(Instance, position, enemyType));
+        activeEnemies.Add(Spawn<WorldEnemy, Enemy, Enemies>(position, enemyType));
     }
 }

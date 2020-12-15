@@ -13,16 +13,16 @@ public class WorldObjectData : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
     }
 
-    public void SetObjectData(Sprite sprite)
+    public void SetObjectData(Sprite sprite, bool setSize = true)
     {
-        // TODOJEF: Pick up here... renderer is null for the sword... something not right
         renderer.sprite = sprite;
         if (sprite != null)
         {
-            Vector3 size = sprite.bounds.size;
             transform.name = sprite.name;
-            SetTransformSize(size);
-            SetBoxColliderSize(size);
+            if (setSize)
+            {
+                SetObjectSize(sprite.bounds.size);
+            }
         }
     }
 

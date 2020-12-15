@@ -2,12 +2,8 @@
 
 public class UIInventory : MonoBehaviour
 {
-    public SuitHandler suitHandler;
-    public ShieldHandler shieldHandler;
-    public SwordHandler swordHandler;
-
     private Inventory inventory;
-    private PlayerCharacter player;
+    private WorldPlayer player;
 
     public void SetInventory(Inventory inventory)
     {
@@ -15,7 +11,7 @@ public class UIInventory : MonoBehaviour
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
     }
 
-    public void SetPlayer(PlayerCharacter player)
+    public void SetPlayer(WorldPlayer player)
     {
         this.player = player;
     }
@@ -27,15 +23,15 @@ public class UIInventory : MonoBehaviour
         {
             if (item.IsRing())
             {
-                suitHandler.SetSuitColor(item.itemType);
+                GameHandler.suitHandler.SetSuitColor(item.itemType);
             }
             else if (item.IsShield())
             {
-                shieldHandler.SetShield(item.itemType);
+                GameHandler.shieldHandler.SetShield(item.itemType);
             }
             else if (item.IsSword())
             {
-                swordHandler.SetSword(item);
+                GameHandler.swordHandler.SetSword(item);
             }
         }
     }

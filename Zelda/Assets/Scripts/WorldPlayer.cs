@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerCharacter : WorldCharacter<BaseCharacter>
+public class WorldPlayer : WorldCharacter<BaseCharacter>
 {
     public UIInventory uiInventory;
     public const float SPEED = 1f;
@@ -20,15 +20,13 @@ public class PlayerCharacter : WorldCharacter<BaseCharacter>
         characterAnimation = GetComponent<CharacterAnimation>();
         inventory = new Inventory(UseItem);
         uiInventory = FindObjectOfType<UIInventory>();
-        uiInventory.swordHandler = transform.GetChild(4).GetComponent<SwordHandler>();
-        uiInventory.suitHandler = gameObject.GetComponentInChildren<SuitHandler>();
-        uiInventory.shieldHandler = transform.GetChild(1).GetComponent<ShieldHandler>();
         uiInventory.SetInventory(inventory);
         uiInventory.SetPlayer(this);
     }
 
     private void Start()
     {
+        // TODOJEF????
         SpriteRenderer shield = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         shield.gameObject.SetActive(true);
     }
