@@ -1,28 +1,32 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class WorldPlayer : WorldCharacter<BaseCharacter>
 {
     public UIInventory uiInventory;
-    public Rigidbody2D rb2d;
     public const float SPEED = 1f;
-    public CharacterAnimation characterAnimation;
-    public Animator animator;
 
+    private Rigidbody2D rb2d;
+    private CharacterAnimation characterAnimation;
     private Inventory inventory;
     private Vector3 movement;
     private bool isAttacking = false;
     private float? lastAttack = 0f;
 
-    private void Awake()
+    public new void Awake()
     {
+        base.Awake();
+        rb2d = GetComponent<Rigidbody2D>();
+        characterAnimation = GetComponent<CharacterAnimation>();
         inventory = new Inventory(UseItem);
+        uiInventory = FindObjectOfType<UIInventory>();
         uiInventory.SetInventory(inventory);
         uiInventory.SetPlayer(this);
     }
 
     private void Start()
     {
+        // TODOJEF????
         SpriteRenderer shield = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         shield.gameObject.SetActive(true);
     }
@@ -40,6 +44,15 @@ public class PlayerCharacter : MonoBehaviour
         {
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestroySelf();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        WorldEnemy worldEnemy = collision.gameObject.GetComponent<WorldEnemy>();
+        if (worldEnemy != null)
+        {
+            Debug.Log(worldEnemy.GetTouchDamage());
         }
     }
 

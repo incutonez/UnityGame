@@ -1,20 +1,58 @@
 ﻿using NPCs;
 using System;
-using UnityEngine;
 
 [Serializable]
-public class Enemy
+public class Enemy : BaseCharacter
 {
-    public Enemies enemyType;
-
-    // TODO: Get this from the enum
-    private int strength;
-    private int health;
-
-    public Sprite GetSprite()
+    public bool CanBomb()
     {
-        return EnemyManager.Instance.LoadSpriteByType(enemyType);
+        switch (characterType)
+        {
+            // TODO: Fill out rest of enemies
+            case Enemies.Armos:
+                return true;
+        }
+        return false;
     }
 
-    
+    public bool CanArrow()
+    {
+        switch (characterType)
+        {
+            // TODO: Fill out rest of enemies
+            case Enemies.Armos:
+                return true;
+        }
+        return false;
+    }
+
+    public bool CanWand()
+    {
+        switch (characterType)
+        {
+            case Enemies.Armos:
+                return true;
+        }
+        return false;
+    }
+
+    public bool CanCandle()
+    {
+        switch (characterType)
+        {
+            case Enemies.Armos:
+                return true;
+        }
+        return false;
+    }
+
+    public bool CanBoomerang()
+    {
+        switch (characterType)
+        {
+            case Enemies.Armos:
+                return true;
+        }
+        return false;
+    }
 }

@@ -23,6 +23,30 @@ public class ShieldHandler : MonoBehaviour
         shieldMagicalSideSprite = ItemManager.Instance.LoadSprite("ShieldMagicalSide");
     }
 
+    public void ToggleShields(bool enabled = false, bool? rightShield = null, bool? leftShield = null)
+    {   
+        // Idea from https://gamedev.stackexchange.com/questions/125464/multiple-sprite-animation-layers-overlayed-in-unity-animator
+        // If we were last moving down or we haven't moved at all
+        ToggleShield(enabled);
+        ToggleRightShield(rightShield.HasValue ? rightShield.Value : enabled);
+        ToggleLeftShield(leftShield.HasValue ? leftShield.Value : enabled);
+    }
+
+    public void ToggleShield(bool enabled = false)
+    {
+        shield.enabled = enabled;
+    }
+
+    public void ToggleRightShield(bool enabled = false)
+    {
+        shieldRight.enabled = enabled;
+    }
+
+    public void ToggleLeftShield(bool enabled = false)
+    {
+        shieldLeft.enabled = enabled;
+    }
+
     public void SetShield(Items itemType)
     {
         if (itemType == Items.Shield)

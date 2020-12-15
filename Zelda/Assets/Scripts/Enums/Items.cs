@@ -1,12 +1,17 @@
 ﻿public enum Items
 {
+    [Damage(0, 4)]
     Arrow,
+    [Damage(0, 8)]
     ArrowSilver,
+    [Damage(0, 8)]
     Bomb,
     Boomerang,
     BoomerangMagical,
     Bow,
+    [Damage(0, 2)]
     Candle,
+    [Damage(0, 2)]
     CandleRed,
     Clock,
     Compass,
@@ -37,10 +42,14 @@
     Shield,
     // On character sprite
     ShieldMagical,
+    [Damage()]
     Sword,
+    [Damage(0, 2)]
     SwordWhite,
+    [Damage(0, 4)]
     SwordMagical,
     // Split between Shard1 and 2
     TriforceShard,
+    [Damage(0, 4)]
     Wand
 }

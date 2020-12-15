@@ -6,6 +6,7 @@ public class ItemManager : MonoBehaviour
     private Sprite[] sprites;
 
     public static ItemManager Instance { get; private set; }
+
     public RectTransform prefab;
 
     private void Awake()
