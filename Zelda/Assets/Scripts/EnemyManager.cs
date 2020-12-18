@@ -9,7 +9,7 @@ public class EnemyManager : BaseManager<EnemyManager>
 {
     private List<WorldEnemy> activeEnemies = new List<WorldEnemy>();
 
-    public EnemyManager()
+    public void Awake()
     {
         LoadSprites("Sprites/enemies");
         LoadPrefab("Prefabs/Enemy");
